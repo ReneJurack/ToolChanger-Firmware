@@ -117,6 +117,7 @@ M208 A35 S0 					; Set axis maxima
 
 ; ASMBL Tool T3
 M307 H7 A-1 C-1 D-1 					; disable heater 7 to use the ESC on PWM5@DUEX5 like a Servo.
+M42 P7 I1 S0.12 F1000         ; set Heater 7 pin to 0% PWM at 1000Hz
 
 
 ;tool offsets
