@@ -1,0 +1,4 @@
+; Unload filament
+M83 			; set extruder to relative moves
+G1 E-840 F2400		; unload fast
+M84 E0:1:2:3		; turn extruder motors off so the user can feed by hand
