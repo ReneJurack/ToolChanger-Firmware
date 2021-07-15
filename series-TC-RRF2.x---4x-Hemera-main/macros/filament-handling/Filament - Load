@@ -1,0 +1,5 @@
+; Load filament
+M83 			; set extruder to relative moves
+G1 E760 F2500		; push it to the extruder
+G1 E50 F320		; extrude slowly
+M84 E0:1:2:3		; turn extruder motors off so the user can feed by hand
