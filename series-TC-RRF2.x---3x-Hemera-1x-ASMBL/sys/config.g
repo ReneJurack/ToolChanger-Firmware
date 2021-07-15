@@ -115,6 +115,9 @@ M906 A800 I10					; Set motor currents (mA) and motor idle factor in per cent
 M208 A0 S1 						; Set axis minima
 M208 A35 S0 					; Set axis maxima
 
+; ASMBL Tool T3
+M307 H7 A-1 C-1 D-1 					; disable heater 7 to use the ESC on PWM5@DUEX5 like a Servo.
+
 
 ;tool offsets
 G10 P0 X19.764 Y43.621 Z-5.985
