@@ -1,1 +1,1 @@
-M42 P7 I1 S0.21 F1000  ; set Heater 3 pin to 100% PWM at 1000Hz
+M42 P7 I1 F1000 S0.171  ; set Heater 7 pin to 50% throttle at 1000Hz
