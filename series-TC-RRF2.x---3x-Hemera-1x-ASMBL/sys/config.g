@@ -67,9 +67,6 @@ M143 H2 S300 						; Set temperature limit for heater 2 to 300C
 M305 S"T2" P3 T100000 B4725 C7.06e-8			;Set thermistor
 M143 H3 S300 						; Set temperature limit for heater 3 to 300C
 
-M305 S"T3" P4 T100000 B4725 C7.06e-8 			; Set thermistor
-M143 H4 S300 						; Set temperature limit for heater 4 to 300C
-
 
 ; Tools
 M563 P0 S"T0" D0 H1 F2					; Define tool 0
@@ -116,15 +113,17 @@ M208 A0 S1 						; Set axis minima
 M208 A35 S0 					; Set axis maxima
 
 ; ASMBL Tool T3
-M307 H7 A-1 C-1 D-1 					; disable heater 7 to use the ESC on PWM5@DUEX5 like a Servo.
-M42 P7 I1 S0.12 F1000         ; set Heater 7 pin to 0% PWM at 1000Hz
+M307 H6 A-1 C-1 D-1				; disable heater 6 to use P6 for the SSR to switch the vacuum
+M42 P6 S0;						    ; switch vacuum off
+M307 H7 A-1 C-1 D-1 			; disable heater 7 to use the ESC on PWM5@DUEX5 like a Servo
+M42 P7 I1 F1000 S0				; set Heater 7 (ESC) pin to "OFF"
 
 
 ;tool offsets
-G10 P0 X19.764 Y43.621 Z-5.985
-G10 P1 X20.207 Y43.317 Z-15.84
-G10 P2 X20.609 Y43.231 Z-5.46
-G10 P3 X20.208 Y43.310 Z-5.82
+G10 P0 X19.764 Y43.621 Z-5.985  ; Hemera V6
+G10 P1 X20.207 Y43.317 Z-15.84  ; Hemera Volcano
+G10 P2 X20.609 Y43.231 Z-5.46   ; Hemera V6
+G10 P3 X0.05 Y36.4 Z-24.1 		  ; ASMBL
 
 
 ;deselect tools
