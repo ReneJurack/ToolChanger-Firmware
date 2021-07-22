@@ -42,9 +42,9 @@ M208 X-35:328.5 Y-49:243 Z0:300 C0:260 S0 		; Set axis maxima & minima
 M350 C8 I0  				; Configure microstepping without interpolation
 M350 X16 Y16 Z16 E16:16:16:16 I1					; Configure microstepping with interpolation
 M92 X100 Y100 Z1600 C100 E409:409:409:409		; Set steps per mm
-M566 X400 Y400 Z40 C2 E2:2:2:2				; Set maximum instantaneous speed changes (mm/min)
-M203 X35000 Y35000 Z1200 C5000 E5000:5000:5000:5000	; Set maximum speeds (mm/min)
-M201 X6000 Y6000 Z400 C400 E2500:2500:2500:2500		; Set accelerations (mm/s^2)
+M566 X400 Y400 Z40 C5 E2:2:2:2				; Set maximum instantaneous speed changes (mm/min)
+M203 X35000 Y35000 Z1200 C25000 E5000:5000:5000:5000	; Set maximum speeds (mm/min)
+M201 X6000 Y6000 Z400 C800 E2500:2500:2500:2500		; Set accelerations (mm/s^2)
 M906 X2000 Y2000 Z1330 C400 E1680:1680:1680:1680 I30 	; Set motor currents (mA) and motor idle factor in percent
 M84 S120 												; Set idle timeout
 
@@ -81,7 +81,7 @@ M563 P2 S"T2" D2 H3 F6					; Define tool 2
 G10 P2 X0 Y0 Z0 					; Reset tool 2 axis offsets
 G10 P2 R0 S0 						; Reset initial tool 2 active and standby temperatures to 0C
 
-M563 P3 S"T3" D3 H4 F8					; Define tool 3
+M563 P3 S"spindle" ;D3 H4 F8					; Define tool 3
 G10 P3 X0 Y0 Z0 					; Reset tool 3 axis offsets
 G10 P3 R0 S0 						; Reset initial tool 3 active and standby temperatures to 0C
 
@@ -112,18 +112,20 @@ M906 A800 I10					; Set motor currents (mA) and motor idle factor in per cent
 M208 A0 S1 						; Set axis minima
 M208 A35 S0 					; Set axis maxima
 
+
 ; ASMBL Tool T3
 M307 H6 A-1 C-1 D-1				; disable heater 6 to use P6 for the SSR to switch the vacuum
-M42 P6 S0;						    ; switch vacuum off
+M42 P6 S0;						; switch vacuum off
 M307 H7 A-1 C-1 D-1 			; disable heater 7 to use the ESC on PWM5@DUEX5 like a Servo
 M42 P7 I1 F1000 S0				; set Heater 7 (ESC) pin to "OFF"
 
 
+
 ;tool offsets
-G10 P0 X19.764 Y43.621 Z-5.985  ; Hemera V6
-G10 P1 X20.207 Y43.317 Z-15.84  ; Hemera Volcano
-G10 P2 X20.609 Y43.231 Z-5.46   ; Hemera V6
-G10 P3 X0.05 Y36.4 Z-24.1 		  ; ASMBL
+G10 P0 X19.764 Y43.621 Z-5.985
+G10 P1 X20.207 Y43.317 Z-15.84
+G10 P2 X20.609 Y43.231 Z-5.46
+G10 P3 X0.05 Y36.4 Z-24.1 		; ASMBL  
 
 
 ;deselect tools
